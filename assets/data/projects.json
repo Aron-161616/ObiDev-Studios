@@ -1,1 +1,26 @@
-
+[
+  {
+    "id": "test1",
+    "title": "Test 1",
+    "category": "plugin",
+    "description": "Plugin de test.",
+    "commands": ["/test1 help", "/test1 on", "/test1 off"],
+    "content": ["Fonction A", "Fonction B", "Config YAML"]
+  },
+  {
+    "id": "test2",
+    "title": "Test 2",
+    "category": "addon",
+    "description": "Addon de test.",
+    "commands": ["/test2 give", "/test2 reload"],
+    "content": ["Items custom", "Recettes", "Loot tables"]
+  },
+  {
+    "id": "test3",
+    "title": "Test 3",
+    "category": "model3d",
+    "description": "Model 3D de test.",
+    "commands": ["(Aucune commande)"],
+    "content": ["Fichier .glb/.fbx", "Textures", "Préviews"]
+  }
+]
