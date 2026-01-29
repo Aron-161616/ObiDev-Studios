@@ -10,15 +10,32 @@
   --shadow: 0 12px 40px rgba(0,0,0,.45);
 }
 
+[data-theme="light"]{
+  --bg: #f5f7fa;
+  --panel: #ffffff;
+  --panel2: #fafbfc;
+  --border: rgba(0,0,0,.08);
+  --text: #1a1a1a;
+  --muted: #666;
+  --accent: #f7c948;
+  --accent2: #e6b800;
+  --shadow: 0 8px 25px rgba(0,0,0,.08);
+}
+
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
 body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background: var(--bg);
+  color: var(--text);
+  transition: background .3s ease, color .3s ease;
+}
+
+[data-theme="dark"] body{
   background: radial-gradient(1200px 600px at 20% 0%, rgba(255,201,72,.10), transparent 60%),
               radial-gradient(900px 600px at 90% 10%, rgba(84,138,255,.12), transparent 55%),
               var(--bg);
-  color: var(--text);
 }
 
 .container{ width:min(1100px, 92vw); margin: 22px auto 40px; }
@@ -28,13 +45,18 @@ body{
   top: 0;
   z-index: 10;
   backdrop-filter: blur(10px);
-  background: rgba(11,18,32,.72);
+  background: var(--panel);
   border-bottom: 1px solid var(--border);
   padding: 14px 18px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap: 16px;
+  transition: background .3s ease;
+}
+
+[data-theme="dark"] .topbar{
+  background: rgba(11,18,32,.72);
 }
 
 .brand{ 
@@ -66,14 +88,14 @@ body{
 .tabs{ display:flex; gap: 8px; flex-wrap: wrap; justify-content:flex-end; }
 .tab{
   border: 1px solid var(--border);
-  background: rgba(255,255,255,.03);
+  background: var(--panel2);
   color: var(--text);
   padding: 9px 12px;
   border-radius: 10px;
   cursor:pointer;
   transition: transform .08s ease, border-color .2s ease, background .2s ease;
 }
-.tab:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.16); }
+.tab:hover{ transform: translateY(-1px); border-color: var(--muted); }
 .tab.is-active{
   border-color: rgba(255,201,72,.55);
   background: rgba(255,201,72,.10);
@@ -82,7 +104,7 @@ body{
 
 .hero{
   margin-top: 18px;
-  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  background: var(--panel);
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 18px;
@@ -98,9 +120,19 @@ body{
   border-radius: 999px;
   border: 1px solid var(--border);
   color: var(--muted);
-  background: rgba(255,255,255,.02);
+  background: var(--panel2);
+  cursor: pointer;
+  transition: all .2s ease;
 }
-.pill-accent{ border-color: rgba(255,201,72,.45); color: var(--accent2); background: rgba(255,201,72,.08); }
+.pill:hover{
+  border-color: var(--accent);
+}
+.pill-accent{ 
+  border-color: rgba(255,201,72,.55); 
+  color: var(--text); 
+  background: rgba(255,201,72,.25); 
+  font-weight: 600;
+}
 
 .gridHeader{
   margin-top: 16px;
@@ -115,9 +147,10 @@ body{
   padding: 10px 12px;
   border-radius: 12px;
   border: 1px solid var(--border);
-  background: rgba(255,255,255,.03);
+  background: var(--panel);
   color: var(--text);
   outline: none;
+  transition: border-color .2s ease;
 }
 .searchBox input:focus{ border-color: rgba(255,201,72,.55); }
 
@@ -132,7 +165,7 @@ body{
   grid-column: span 12;
   border-radius: 16px;
   border: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(15,27,46,.95), rgba(12,23,40,.95));
+  background: var(--panel);
   box-shadow: var(--shadow);
   padding: 14px;
   transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
@@ -142,7 +175,7 @@ body{
 }
 .card:hover{
   transform: translateY(-3px) scale(1.01);
-  box-shadow: 0 18px 45px rgba(0,0,0,.55);
+  box-shadow: 0 18px 45px rgba(0,0,0,.15);
   border-color: rgba(255,201,72,.40);
 }
 @media (min-width: 820px){
@@ -174,19 +207,22 @@ body{
   border-radius: 999px;
   border: 1px solid var(--border);
   color: var(--muted);
-  background: rgba(255,255,255,.02);
+  background: var(--panel2);
   white-space:nowrap;
 }
-.badge.plugin{ border-color: rgba(84,138,255,.35); color: rgba(170,205,255,.95); }
-.badge.addon{ border-color: rgba(132,255,191,.28); color: rgba(180,255,220,.95); }
-.badge.model3d{ border-color: rgba(255,201,72,.45); color: var(--accent2); background: rgba(255,201,72,.06); }
+.badge.plugin{ border-color: rgba(84,138,255,.35); color: rgba(84,138,255,.95); }
+.badge.addon{ border-color: rgba(132,255,191,.38); color: rgba(50,180,120,.95); }
+.badge.model3d{ border-color: rgba(255,201,72,.45); color: var(--accent2); background: rgba(255,201,72,.08); }
+
+[data-theme="dark"] .badge.plugin{ color: rgba(170,205,255,.95); }
+[data-theme="dark"] .badge.addon{ color: rgba(180,255,220,.95); }
 
 .desc{ margin: 8px 0 0; color: var(--muted); }
 
 .cardFooter{
   margin-top: 8px;
   padding-top: 10px;
-  border-top: 1px solid rgba(255,255,255,.08);
+  border-top: 1px solid var(--border);
   font-size: 12px;
   color: var(--accent2);
   font-weight: 500;
@@ -194,20 +230,20 @@ body{
 
 .block{
   margin-top: 12px;
-  border: 1px solid rgba(255,255,255,.08);
+  border: 1px solid var(--border);
   border-radius: 12px;
-  background: rgba(0,0,0,.18);
+  background: var(--panel2);
   overflow:hidden;
 }
 .blockHeader{
   display:flex; align-items:center; justify-content:space-between;
   padding: 10px 12px;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-  color: rgba(255,255,255,.85);
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
   font-weight: 700;
   font-size: 13px;
 }
-.blockBody{ padding: 10px 12px; color: rgba(255,255,255,.82); }
+.blockBody{ padding: 10px 12px; color: var(--text); }
 .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
 
 .footer{
@@ -239,7 +275,7 @@ body{
 }
 
 .modalContent{
-  background: linear-gradient(180deg, rgba(15,27,46,.98), rgba(12,23,40,.98));
+  background: var(--panel);
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 28px;
@@ -247,7 +283,7 @@ body{
   width: 90%;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 25px 60px rgba(0,0,0,.8);
+  box-shadow: 0 25px 60px rgba(0,0,0,.5);
   position: relative;
 }
 
@@ -255,7 +291,7 @@ body{
   position: absolute;
   top: 12px;
   right: 12px;
-  background: rgba(255,255,255,.1);
+  background: var(--panel2);
   border: 1px solid var(--border);
   color: var(--text);
   width: 32px;
@@ -268,7 +304,7 @@ body{
   transition: background .2s ease;
 }
 .modalClose:hover{
-  background: rgba(255,255,255,.2);
+  background: var(--border);
 }
 
 .modalHeader{
