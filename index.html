@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -31,15 +31,15 @@
       <h1>Portfolio</h1>
       <p>Voici le portfolio actuel Omniworlds</p>
       <div class="heroMeta">
-        <span class="pill">Dark</span>
-        <span class="pill pill-accent">White</span>
+        <button class="pill" id="themeLight" onclick="setTheme('light')">White</button>
+        <button class="pill" id="themeDark" onclick="setTheme('dark')">Dark</button>
       </div>
     </section>
 
     <section class="gridHeader">
       <h2 id="resultsTitle">Projets</h2>
       <div class="searchBox">
-        <input id="search" type="search" placeholder="Rechercher (ex: Test 2, /test1)..." />
+        <input id="search" type="search" placeholder="Rechercher..." />
       </div>
     </section>
 
