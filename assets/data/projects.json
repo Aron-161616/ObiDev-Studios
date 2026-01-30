@@ -36,7 +36,7 @@
     "category": "plugin",
     "description": "Système de grades avec préfixes automatiques dans le chat",
     "icon": "assets/img/logo.png",
-    "commands": ["/mongrade (JOUEUR)", "/tag <joueur> add grade_joueur (OP)", "/tag <joueur> add grade_moderateur (OP)", "/tag <joueur> remove grade_joueur (OP)", "/tag <joueur> remove grade_moderateur (OP)", "/tag <joueur> list (OP)"],
+    "commands": ["/mongrade", "/tag <joueur> add grade_joueur", "/tag <joueur> add grade_moderateur", "/tag <joueur> remove grade_joueur", "/tag <joueur> remove grade_moderateur", "/tag <joueur> list "],
     "content": ["/mongrade - Affiche son grade actuel (Joueur ou Modération) (JOUEUR)",
       "/tag <joueur> add grade_...... - Donne le grade au joueur ciblé (OP)",
       "/tag <joueur> remove grade_...... - Retire le grade au Joueur ciblé (OP)",
