@@ -6,7 +6,7 @@
     "description": "Système de spawn avec téléportation",
     "icon": "assets/img/logo.png",
     "commands": ["/spawn", "/setspawn", "/spawnon", "/spawnoff"],
-    "content": ["Téléportation au spawn", "Définir spawn (OP)", "Activer/désactiver", "Sauvegarde config.json"],
+    "content": ["/spawn -Le joueur tape `/spawn` et est téléporté au spawn","/setspawn -Le joueur OP tape la commande à l'endroit où il veut que le spawn soit défini","/spawnon/off -Le joueur OP tape cette commande pour Activer/Désactiver la commande /spawn"],
     "link": "https://drive.google.com/drive/folders/189rar99bdymdA05nKW-g1jxShX6O2VOx"
   },
   {
@@ -15,8 +15,8 @@
     "category": "plugin",
     "description": "Suite complète d'outils de modération",
     "icon": "assets/img/logo.png",
-    "commands": ["/sos", "/s", "/vanish", "/fly", "/invsee <joueur>", "/freeze <joueur>", "/tphere <joueur>", "/tpall", "/annonce <message>"],
-    "content": ["SOS joueurs + TP rapide", "Vanish + Night Vision", "Gestion inventaires", "Téléportations (OP)", "Freeze/speed/inspect", "Annonces serveur"],
+    "commands": ["/sos", "/s", "/vanish", "/fly", "/invsee <joueur>", "/invclear <joueur>", "/freeze <joueur>", "/tp <joueur>", "/tphere <joueur>", "/tpall", "/fly", "/speedon", "/speedoff", "/annonce <message>"],
+    "content": ["System de SOS","System vanish et fly","System de tp","System de modération"],
     "link": "https://drive.google.com/drive/folders/189rar99bdymdA05nKW-g1jxShX6O2VOx"
   },
   {
