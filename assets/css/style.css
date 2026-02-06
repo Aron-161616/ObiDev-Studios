@@ -29,9 +29,12 @@
 }
 
 *{ box-sizing:border-box; }
-html,body{ height:100%; }
+html{ height:100%; }
 body{
   margin:0;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
   background: var(--bg);
   color: var(--text);
@@ -44,8 +47,16 @@ body{
               var(--bg);
 }
 
-.container{ width:min(1100px, 92vw); margin: 22px auto 40px; }
+/* CONTENEUR GLOBAL DU CONTENU */
+.container{ 
+  flex:1;
+  width:min(1100px, 92vw); 
+  margin: 22px auto 0;
+  display:flex;
+  flex-direction:column;
+}
 
+/* TOPBAR */
 .topbar{
   position: sticky;
   top: 0;
@@ -116,6 +127,7 @@ body{
   text-decoration: none;
 }
 
+/* HERO / PANNEAUX */
 .hero{
   margin-top: 18px;
   background: var(--panel);
@@ -152,6 +164,7 @@ body{
   font-weight: 600;
 }
 
+/* HEADER GRID + SEARCH */
 .gridHeader{
   margin-top: 16px;
   display:flex;
@@ -161,6 +174,7 @@ body{
 }
 
 .gridHeader h2{ margin: 0; font-size: 16px; color: var(--muted); font-weight: 700; }
+
 .searchBox input{
   width: min(320px, 70vw);
   padding: 10px 12px;
@@ -174,6 +188,7 @@ body{
 
 .searchBox input:focus{ border-color: rgba(135,206,235,.55); }
 
+/* GRID PROJETS */
 .grid{
   margin-top: 12px;
   display:grid;
@@ -224,6 +239,7 @@ body{
 
 .cardTop{ display:flex; align-items:flex-start; justify-content:space-between; gap: 12px; flex: 1; }
 .card h3{ margin:0; font-size: 18px; }
+
 .badge{
   font-size: 12px;
   padding: 6px 10px;
@@ -252,6 +268,7 @@ body{
   font-weight: 500;
 }
 
+/* BLOCS GENERIQUES */
 .block{
   margin-top: 12px;
   border: 1px solid var(--border);
@@ -272,11 +289,11 @@ body{
 .blockBody{ padding: 10px 12px; color: var(--text); }
 .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
 
+/* FOOTER STICKY EN BAS */
 .footer{
-  margin-top: 50px;
-  margin-bottom: 40px;
-  padding-top: 16px;
-  padding-bottom: 0;
+  margin-top: auto;
+  margin-bottom: 0;
+  padding: 16px 22px 16px;
   border-top: 1px solid var(--border);
   display:flex;
   justify-content:space-between;
@@ -366,6 +383,7 @@ body{
   line-height: 1.5;
 }
 
+/* RESPONSIVE GLOBAL */
 @media (max-width: 560px){
   .topbar{ padding: 12px 12px; }
   .brandTitle{ font-size: 14px; }
@@ -381,11 +399,17 @@ body{
     width: 95%;
     padding: 18px;
   }
+
+  .footer{
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
 }
 
 /* === PAGE D'ACCUEIL === */
 
-/* Grand logo centré avec lueur - ESPACE MINIMAL */
+/* Grand logo centré avec lueur */
 .heroLogo{
   text-align: center;
   margin-top: 0;
@@ -490,7 +514,7 @@ body{
   line-height: 1.5;
 }
 
-/* Bouton voir tous les projets - AGRANDI */
+/* Bouton voir tous les projets */
 .see-all-button{
   display:inline-block;
   font-size:18px;
@@ -547,7 +571,7 @@ body{
   transform: scale(1.05);
 }
 
-/* Responsive */
+/* Responsive page d'accueil */
 @media (max-width: 768px){
   .bigLogo{
     width: 220px;
