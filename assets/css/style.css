@@ -325,7 +325,7 @@ font-size: 13px;
 .footer{
 margin-top: 10px;
 margin-bottom: 0;
-padding: 16px 22px 16px;
+padding: 16px 22px 25px;
 border-top: 1px solid var(--border);
 display:flex;
 justify-content:space-between;
