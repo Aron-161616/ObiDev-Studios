@@ -199,29 +199,41 @@ body{
 .hero h1{ margin: 0 0 8px; font-size: 24px; }
 .hero p{ margin: 0; color: var(--muted); }
 
-.heroMeta{ display:flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+.heroMeta{ 
+  display:flex; 
+  gap: 10px; 
+  flex-wrap: wrap; 
+  margin-top: 12px; 
+}
+
+/* Style type \"badge\" de la 1ère image mais en forme longue de la 2e */
 .pill{
-  font-size: 12px;
-  padding: 6px 10px;
-  border-radius: 999px;
+  font-size: 14px;
+  padding: 14px 26px;         /* plus large, comme le gros bouton */
+  border-radius: 999px;       /* forme longue arrondie */
   border: 1px solid var(--border);
   color: var(--muted);
   background: var(--panel2);
   cursor: pointer;
   transition: all .2s ease;
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;                   /* espace pour l’emoji/icone */
 }
 
 .pill:hover{
   border-color: var(--accent);
 }
 
+/* Variante accentuée (fusée, cadenas, etc.) */
 .pill-accent{ 
   border-color: rgba(135,206,235,.55); 
   color: var(--text); 
   background: rgba(135,206,235,.25); 
   font-weight: 600;
 }
+
 
 /* HEADER GRID + SEARCH */
 .gridHeader{
