@@ -273,14 +273,15 @@ body{
 .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
 
 .footer{
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-top: 0;
+  margin-top: 24px;
+  margin-bottom: 40px;
+  padding-top: 16px;
   padding-bottom: 0;
-  border-top: none;
+  border-top: 1px solid var(--border);
   display:flex;
   justify-content:space-between;
   color: var(--muted);
+  font-size: 13px;
 }
 
 .footer a{ color: var(--accent2); text-decoration:none; }
@@ -384,17 +385,17 @@ body{
 
 /* === PAGE D'ACCUEIL === */
 
-/* Grand logo centré avec lueur (x2 - moins d'espace) */
+/* Grand logo centré avec lueur - ESPACE RÉDUIT */
 .heroLogo{
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .bigLogo{
   width: 540px;
   height: 540px;
-  margin: 0 auto 4px;
+  margin: 0 auto 2px;
   filter: drop-shadow(0 0 50px rgba(135,206,235,.6)) 
           drop-shadow(0 0 80px rgba(135,206,235,.4));
   display: inline-block;
@@ -417,7 +418,7 @@ body{
 
 /* Section Projets à la Une */
 .featuredSection{
-  margin-top: 40px;
+  margin-top: 30px;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -507,8 +508,8 @@ body{
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-top: 50px;
-  margin-bottom: 30px;
+  margin-top: 40px;
+  margin-bottom: 0;
   transition: transform .2s ease, box-shadow .2s ease;
 }
 
