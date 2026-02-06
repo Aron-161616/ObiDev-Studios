@@ -637,4 +637,19 @@ text-align: center;
 margin-left: 0;
 width: 100%;
 }
+
+.sectionTitle {
+font-size: 42px !important;     
+font-weight: 900 !important;
+letter-spacing: 1.5px !important;
+text-transform
+}
+.sectionSubtitle {
+font-size: 16px !important;
+color: var(--muted) !important;
+margin: 0 0 50px 0 !important;   
+max-width: 600px !important;
+margin-left: auto !important;
+margin-right: auto
+}
 }
