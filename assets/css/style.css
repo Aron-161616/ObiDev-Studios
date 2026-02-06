@@ -532,6 +532,70 @@ padding:14px 28px;
 margin-top: 30px;
 }
 
+.simpleSection {
+  padding: 70px 20px;
+  max-width: 900px;
+  margin: 0 auto;               
+  text-align: center;
+}
+
+.titleWrapper {
+  margin-bottom: 40px;
+}
+
+.sectionTitle {
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 0 10px 0;
+}
+
+.sectionSubtitle {
+  font-size: 16px;
+  color: var(--muted);
+  margin: 0 0 40px 0;
+}
+
+
+.simpleGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: center;           
+}
+
+.simpleCard {
+  text-align: center;
+}
+
+.simpleCard h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+}
+
+
+.simpleCard .pill.pill-accent.see {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px 32px;
+  border-radius: 999px;
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.35;
+  box-shadow: 0 10px 30px rgba(0,0,0,.4);
+}
+
+.simpleCard .pill.pill-accent.see:hover {
+  border-color: var(--accent);
+}
 
 .discordPanel{
 background: var(--panel);
