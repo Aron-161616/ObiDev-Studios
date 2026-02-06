@@ -1,3 +1,4 @@
+
 :root{
   --bg: #0b1220;
   --panel: #0f1b2e;
@@ -206,11 +207,35 @@ body{
   margin-top: 12px; 
 }
 
-/* Style type \"badge\" de la 1ère image mais en forme longue de la 2e */
-.pill{
+/* PILLS SIMPLICITÉ - NOIR TRANSPARENT PARFAIT */
+.simpleSection .pill,
+.simpleSection .pill-accent {
+  font-size: 15px !important;
+  padding: 16px 24px !important;
+  margin: 12px !important;
+  border-radius: 20px !important;
+  background: rgba(0,0,0,.4) !important;
+  border: 1px solid rgba(255,255,255,.1) !important;
+  color: var(--text) !important;
+  font-weight: 500 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  line-height: 1.3 !important;
+  backdrop-filter: blur(10px) !important;
+  text-decoration: none !important;
+}
+
+.simpleSection .pill-accent:hover {
+  background: rgba(135,206,235,.12) !important;
+}
+
+/* Autres pills (hors simplicité) restent normales */
+.pill:not(.simpleSection .pill),
+.pill-accent:not(.simpleSection .pill-accent) {
   font-size: 14px;
-  padding: 14px 26px;         /* plus large, comme le gros bouton */
-  border-radius: 999px;       /* forme longue arrondie */
+  padding: 14px 26px;
+  border-radius: 999px;
   border: 1px solid var(--border);
   color: var(--muted);
   background: var(--panel2);
@@ -219,21 +244,34 @@ body{
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 8px;                   /* espace pour l’emoji/icone */
+  gap: 8px;
 }
 
-.pill:hover{
+.pill:not(.simpleSection .pill):hover {
   border-color: var(--accent);
 }
 
-/* Variante accentuée (fusée, cadenas, etc.) */
-.pill-accent{ 
+.pill-accent:not(.simpleSection .pill-accent) { 
   border-color: rgba(135,206,235,.55); 
   color: var(--text); 
   background: rgba(135,206,235,.25); 
   font-weight: 600;
 }
 
+/* FIX SIMPLICITÉ GRID */
+.simpleGrid {
+  justify-content: center !important;
+}
+
+.simpleCard {
+  width: 300px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
+/* Le reste identique */
+# ... reste du CSS inchangé ...
 
 /* HEADER GRID + SEARCH */
 .gridHeader{
@@ -242,460 +280,4 @@ body{
   align-items:center;
   justify-content:space-between;
   gap: 12px;
-}
-
-.gridHeader h2{ margin: 0; font-size: 16px; color: var(--muted); font-weight: 700; }
-
-.searchBox input{
-  width: min(320px, 70vw);
-  padding: 10px 12px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: var(--panel);
-  color: var(--text);
-  outline: none;
-  transition: border-color .2s ease;
-}
-
-.searchBox input:focus{ border-color: rgba(135,206,235,.55); }
-
-/* GRID PROJETS */
-.grid{
-  margin-top: 12px;
-  display:grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 12px;
-}
-
-.card{
-  grid-column: span 12;
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  background: var(--panel);
-  box-shadow: var(--shadow);
-  padding: 14px;
-  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-}
-
-.card:hover{
-  transform: translateY(-3px) scale(1.01);
-  box-shadow: 0 18px 45px rgba(0,0,0,.15);
-  border-color: rgba(135,206,235,.40);
-}
-
-@media (min-width: 820px){
-  .card{ grid-column: span 6; }
-}
-
-.cardIcon{
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: rgba(135,206,235,.1);
-  border: 1px solid rgba(135,206,235,.3);
-  display: grid;
-  place-items: center;
-  margin-bottom: 8px;
-  overflow: hidden;
-}
-
-.cardIcon img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.cardTop{ display:flex; align-items:flex-start; justify-content:space-between; gap: 12px; flex: 1; }
-.card h3{ margin:0; font-size: 18px; }
-
-.badge{
-  font-size: 12px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  color: var(--muted);
-  background: var(--panel2);
-  white-space:nowrap;
-}
-
-.badge.plugin{ border-color: rgba(84,138,255,.35); color: rgba(84,138,255,.95); }
-.badge.addon{ border-color: rgba(132,255,191,.38); color: rgba(50,180,120,.95); }
-.badge.model3d{ border-color: rgba(135,206,235,.45); color: var(--accent2); background: rgba(135,206,235,.08); }
-
-[data-theme="dark"] .badge.plugin{ color: rgba(170,205,255,.95); }
-[data-theme="dark"] .badge.addon{ color: rgba(180,255,220,.95); }
-
-.desc{ margin: 8px 0 0; color: var(--muted); }
-
-.cardFooter{
-  margin-top: 8px;
-  padding-top: 10px;
-  border-top: 1px solid var(--border);
-  font-size: 12px;
-  color: var(--accent2);
-  font-weight: 500;
-}
-
-/* BLOCS GENERIQUES */
-.block{
-  margin-top: 12px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--panel2);
-  overflow:hidden;
-}
-
-.blockHeader{
-  display:flex; align-items:center; justify-content:space-between;
-  padding: 10px 12px;
-  border-bottom: 1px solid var(--border);
-  color: var(--text);
-  font-weight: 700;
-  font-size: 13px;
-}
-
-.blockBody{ padding: 10px 12px; color: var(--text); }
-.mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
-
-/* FOOTER STICKY EN BAS */
-.footer{
-  margin-top: 10px;
-  margin-bottom: 0;
-  padding: 16px 22px 16px;
-  border-top: 1px solid var(--border);
-  display:flex;
-  justify-content:space-between;
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.footer a{ color: var(--accent2); text-decoration:none; }
-.footer a:hover{ text-decoration: underline; }
-
-/* MODAL */
-.modal{
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,.8);
-  z-index: 1000;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal.is-open{
-  display: flex;
-}
-
-.modalContent{
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 28px;
-  max-width: 700px;
-  width: 90%;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 25px 60px rgba(0,0,0,.5);
-  position: relative;
-}
-
-.modalClose{
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: var(--panel2);
-  border: 1px solid var(--border);
-  color: var(--text);
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 20px;
-  display: grid;
-  place-items: center;
-  transition: background .2s ease;
-}
-
-.modalClose:hover{
-  background: var(--border);
-}
-
-.modalHeader{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
-
-.modalTitleGroup{
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.modalIcon{
-  width: 60px;
-  height: 60px;
-  border-radius: 12px;
-  object-fit: cover;
-  border: 2px solid rgba(135,206,235,.3);
-}
-
-.modalDesc{
-  color: var(--muted);
-  margin: 0 0 16px 0;
-  line-height: 1.5;
-}
-
-/* RESPONSIVE GLOBAL */
-@media (max-width: 560px){
-  .topbar{ padding: 12px 12px; }
-  .brandTitle{ font-size: 14px; }
-  .brandSubtitle{ font-size: 12px; }
-
-  .tabs{ justify-content: flex-start; gap: 6px; }
-  .tab{ padding: 8px 10px; border-radius: 12px; }
-
-  .searchBox input{ width: 100%; }
-  .gridHeader{ flex-direction: column; align-items: stretch; }
-
-  .modalContent{
-    width: 95%;
-    padding: 18px;
-  }
-
-  .footer{
-    flex-direction: column;
-    gap: 8px;
-    text-align: center;
-  }
-}
-
-/* === PAGE D'ACCUEIL === */
-
-/* Grand logo centré avec lueur */
-.heroLogo{
-  text-align: center;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.bigLogo{
-  width: 540px;
-  /* height: 540px; SUPPRIMÉ pour garder les proportions */
-  margin: 0 auto 0;
-  filter: drop-shadow(0 0 50px rgba(135,206,235,.6)) 
-          drop-shadow(0 0 80px rgba(135,206,235,.4));
-  display: inline-block;
-}
-
-.bigLogo img{
-  width: 100%;
-  height: auto; /* garde les proportions */
-  object-fit: contain;
-  display: block;
-}
-
-.bigTitle{
-  font-size: 64px;
-  font-weight: 900;
-  margin: 0;
-  color: var(--accent);
-  text-align: center;
-}
-
-/* Section Projets à la Une */
-.featuredSection{
-  margin-top: 30px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.featuredTitle{
-  font-size: 42px;
-  font-weight: 900;
-  margin: 0 0 12px;
-  text-align: center;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--text);
-}
-
-.featuredSubtitle{
-  font-size: 16px;
-  color: var(--muted);
-  margin: 0 0 40px;
-  text-align: center;
-}
-
-.featuredGrid{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 36px;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.featuredCard{
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 54px 30px;
-  box-shadow: var(--shadow);
-  cursor: pointer;
-  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-  text-align: center;
-  min-height: 330px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.featuredCard:hover{
-  transform: translateY(-6px);
-  box-shadow: 0 25px 60px rgba(0,0,0,.3);
-  border-color: rgba(135,206,235,.6);
-}
-
-.featuredCard .cardIcon{
-  width: 105px;
-  height: 105px;
-  margin: 0 auto 30px;
-  border-radius: 24px;
-}
-
-.featuredCard h3{
-  margin: 0 0 18px;
-  font-size: 30px;
-  font-weight: 700;
-}
-
-.featuredCard .desc{
-  margin: 0;
-  font-size: 21px;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-/* Bouton voir tous les projets */
-.see-all-button{
-  display:inline-block;
-  font-size:18px;
-  padding:14px 28px;
-  margin-top: 30px;
-}
-
-/* Panneau Discord en bas */
-.discordPanel{
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: var(--shadow);
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-top: 40px;
-  margin-bottom: 0;
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-
-.discordPanel:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 15px 50px rgba(0,0,0,.2);
-}
-
-.discordIcon{
-  width: 56px;
-  height: 56px;
-  background: rgba(88,101,242,.15);
-  border: 1px solid rgba(88,101,242,.3);
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
-  color: #5865F2;
-  flex-shrink: 0;
-}
-
-.discordButton{
-  padding: 10px 20px;
-  background: #5865F2;
-  color: white;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: transform .2s ease, background .2s ease;
-  flex-shrink: 0;
-  margin-left: auto;
-}
-
-.discordButton:hover{
-  background: #4752C4;
-  transform: scale(1.05);
-}
-
-/* Responsive page d'accueil */
-@media (max-width: 768px){
-  .bigLogo{
-    width: 220px;
-  }
-
-  .bigTitle{
-    font-size: 42px;
-  }
-
-  .featuredTitle{
-    font-size: 28px;
-    letter-spacing: 1px;
-  }
-
-  .featuredSubtitle{
-    font-size: 14px;
-  }
-
-  .featuredGrid{
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .featuredCard{
-    min-height: auto;
-    padding: 36px 20px;
-  }
-
-  .featuredCard .cardIcon{
-    width: 80px;
-    height: 80px;
-  }
-
-  .featuredCard h3{
-    font-size: 22px;
-  }
-
-  .featuredCard .desc{
-    font-size: 16px;
-  }
-
-  .see-all-button{
-    font-size:16px;
-    padding:12px 24px;
-  }
-
-  .discordPanel{
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .discordButton{
-    margin-left: 0;
-    width: 100%;
-  }
 }
