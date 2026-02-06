@@ -29,10 +29,9 @@
 }
 
 *{ box-sizing:border-box; }
-html{ height:100%; }
+html, body{ height:100%; margin:0; padding:0; }
 body{
-  margin:0;
-  height:100vh;
+  min-height:100vh;
   display:flex;
   flex-direction:column;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
@@ -291,7 +290,7 @@ body{
 
 /* FOOTER STICKY EN BAS */
 .footer{
-  margin-top: auto;
+  margin-top: 10px;
   margin-bottom: 0;
   padding: 16px 22px 16px;
   border-top: 1px solid var(--border);
