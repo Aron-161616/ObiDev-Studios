@@ -174,7 +174,22 @@ background: rgba(135,206,235,.25);
 font-weight: 600;
 }
 
+.cardBadge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--accent);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(135,206,235,.4);
+}
 
+.featuredCard {
+  position: relative; 
+}
 
 .gridHeader{
 margin-top: 16px;
