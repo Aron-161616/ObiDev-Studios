@@ -307,178 +307,122 @@ body {
   .hero-logo-overlay {
     bottom: 30px;
   }
-/* ===== PRODUCTS SECTION ===== */
+
+/* ===== PRODUCTS - PIXEL PERFECT Figma ===== */
 .products-section {
-  padding: 80px 0 120px;
-  background: radial-gradient(circle at top, #020617 0%, #050816 60%);
+  padding: 100px 0;
+  background: linear-gradient(180deg, #0a0e1a 0%, #020617 100%);
 }
 
 .section-title {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
   text-align: center;
-  font-size: 36px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #e5f2ff;
-  margin-bottom: 64px;
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 50%, #93c5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 80px;
 }
 
 .plugins-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 32px;
-  max-width: 1400px;
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important; /* 3 colonnes fixes comme Figma */
+  gap: 28px !important;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-.products-section .container {
-  max-width: 1400px;  /* plus large pour 6 cards */
-  padding: 0 40px;
-}
-
-
-
 .plugin-card {
-  padding: 28px;
-  border-radius: 20px;
-  border: 1px solid rgba(88, 176, 255, 0.3);
-  background: rgba(6, 16, 40, 0.6);
-  backdrop-filter: blur(12px);
+  height: 220px !important; /* Hauteur fixe Figma */
+  border-radius: 24px !important;
+  padding: 32px 24px !important;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  backdrop-filter: blur(20px);
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  position: relative;
+  overflow: hidden;
   cursor: pointer;
-  transition: all 0.3s ease;
-  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.plugin-card:hover {
-  border-color: rgba(88, 176, 255, 0.7);
-  background: rgba(6, 16, 40, 0.9);
-  transform: translateY(-4px);
-  box-shadow: 0 24px 48px rgba(88, 176, 255, 0.15);
+.plugin-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+  transition: left 0.6s ease;
+}
+
+.plugin-card:hover::before {
+  left: 100%;
 }
 
 .plugin-icon {
-  font-size: 48px;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: rgba(59, 130, 246, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
   color: #3b82f6;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
 }
 
 .plugin-card h3 {
-  font-size: 20px;
-  font-weight: 600;
-  color: #f9fafb;
-  margin-bottom: 12px;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: #f8fafc !important;
+  margin-bottom: 12px !important;
+  line-height: 1.2;
 }
 
 .plugin-card p {
-  font-size: 14px;
-  color: #cbd5e1;
-  line-height: 1.6;
+  font-size: 14px !important;
+  color: #94a3b8 !important;
+  line-height: 1.5;
+  margin: 0 !important;
 }
 
-/* ===== MODALS ===== */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(5, 8, 22, 0.95);
-  backdrop-filter: blur(16px);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  opacity: 0;
-  animation: fadeIn 0.3s ease forwards;
+.plugin-card:hover {
+  border-color: #3b82f6 !important;
+  background: rgba(15, 23, 42, 0.95) !important;
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 32px 64px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(59, 130, 246, 0.3);
 }
 
-.modal-overlay.active {
-  display: flex;
-  opacity: 1;
-}
-
-.modal-content {
-  max-width: 600px;
-  width: 90%;
-  max-height: 80vh;
-  padding: 40px;
-  border-radius: 24px;
-  border: 1px solid rgba(88, 176, 255, 0.4);
-  background: rgba(6, 16, 40, 0.95);
-  backdrop-filter: blur(20px);
-  position: relative;
-}
-
-.modal-close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: none;
-  border: none;
-  font-size: 28px;
-  color: #cbd5e1;
-  cursor: pointer;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  transition: background 0.2s ease;
-}
-
-.modal-close:hover {
-  background: rgba(203, 213, 225, 0.15);
-}
-
-.modal-content h3 {
-  font-size: 28px;
-  color: #e5f2ff;
-  margin-bottom: 16px;
-}
-
-.modal-content p {
-  color: #cbd5e1;
-  margin-bottom: 24px;
-  line-height: 1.6;
-}
-
-.modal-content ul {
-  list-style: none;
-  margin-bottom: 28px;
-}
-
-.modal-content li {
-  padding: 8px 0;
-  color: #cbd5e1;
-  position: relative;
-  padding-left: 24px;
-}
-
-.modal-content li::before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  color: #3b82f6;
-  font-weight: 600;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
+/* RESPONSIVE */
+@media (max-width: 1024px) {
   .plugins-grid {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 24px !important;
   }
+}
 
-  .products-section {
-    padding: 60px 0;
+@media (max-width: 640px) {
+  .plugins-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
   }
-
-  .section-title {
-    font-size: 28px;
-  }
-
-  .modal-content {
-    padding: 28px 20px;
+  
+  .plugin-card {
+    height: 200px !important;
+    padding: 24px 20px !important;
   }
 }
