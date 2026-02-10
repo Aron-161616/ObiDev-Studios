@@ -249,6 +249,56 @@ body {
   padding: 0 40px;
 }
 
+
+
+
+
+
+/* ===== SECTIONS ===== */
+
+.featuredSection,
+.simpleSection,
+.accesSection,
+.discordPanel {
+  padding: 80px 0;
+  background: #020617;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* section avantage (simpleSection) */
+.simpleSection {
+  background: radial-gradient(circle at top left, #050816 0%, #020617 60%);
+}
+
+/* titre + sous‑titre génériques */
+.sectionTitle,
+.accesTitle,
+.featuredTitle {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #e5f2ff;
+}
+
+.sectionSubtitle,
+.accesSubtitle,
+.featuredSubtitle {
+  color: #cbd5e1;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+
+
+
+
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .hero {
