@@ -307,7 +307,7 @@ body {
   .hero-logo-overlay {
     bottom: 30px;
   }
-.parallax-break {
+.zzone {
   height: 320px;
   background-color: red;
   background-image: url("assets/img/parallax-code.png"); 
