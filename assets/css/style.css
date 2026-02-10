@@ -308,6 +308,52 @@ body {
     bottom: 30px;
   }
 
-.products-section {
-  padding
- }
+
+
+  
+.prod-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+.plugins-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 360px);
+  gap: 28px;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.plugin-card {
+  width: 360px;
+  height: 200px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  padding: 32px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.plugin-card:hover {
+  transform: translateY(-8px);
+}
+
+.plugin-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.plugin-card h3 {
+  font-size: 24px;
+  margin: 0 0 12px 0;
+}
+
+.plugin-card p {
+  font-size: 16px;
+  opacity: 0.9;
+  margin: 0;
+}
+
