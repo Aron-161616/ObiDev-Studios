@@ -315,5 +315,11 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+section.zzone {
+  height: 320px !important;
+  background-color: lime !important;
+  border: 5px solid yellow !important;
+  margin: 20px 0 !important;
+}
 
 
