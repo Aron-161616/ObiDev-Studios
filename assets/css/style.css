@@ -309,6 +309,7 @@ body {
   }
 .parallax-break {
   height: 320px;
+  background-color: red;
   background-image: url("assets/img/parallax-code.png"); 
   background-position: center;
   background-repeat: no-repeat;
