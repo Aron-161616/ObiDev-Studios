@@ -274,7 +274,7 @@ body {
 
 .hero-logo-overlay {
   position: absolute;
-  bottom: -40px;
+  bottom: -300px;
   left: 50%;
   transform: translateX(-50%);
 }
