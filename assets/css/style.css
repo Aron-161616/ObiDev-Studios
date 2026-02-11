@@ -460,3 +460,189 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Cartes cliquables */
+.plugin-card {
+  cursor: pointer;
+}
+
+/* petit effet press au clic */
+.plugin-card:active {
+  transform: translateY(-2px) scale(0.98);
+}
+
+/* ----- MODAL OVERLAY ----- */
+
+.plugin-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.78);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 200;
+}
+
+.plugin-modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ----- MODAL CARD ----- */
+
+.plugin-modal {
+  width: min(520px, 92vw);
+  background: #020617;
+  border-radius: 24px;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.85);
+  padding: 22px 26px 24px;
+  position: relative;
+  transform: translateY(10px) scale(0.97);
+  opacity: 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.plugin-modal-overlay.open .plugin-modal {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* Bouton fermer */
+
+.plugin-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5f2ff;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.plugin-modal-close:hover {
+  background: rgba(30, 64, 175, 0.9);
+  border-color: rgba(129, 140, 248, 0.9);
+  transform: scale(1.05);
+}
+
+/* Header du modal */
+
+.plugin-modal-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.plugin-modal-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #e5f2ff;
+  margin-bottom: 4px;
+}
+
+.plugin-modal-subtitle {
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.plugin-modal-badge {
+  align-self: flex-start;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #e0f2ff;
+  background: rgba(56, 189, 248, 0.14);
+  border-radius: 999px;
+  border: 1px solid rgba(56, 189, 248, 0.7);
+}
+
+/* Corps */
+
+.plugin-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.plugin-modal-block {
+  background: #020617;
+  border-radius: 14px;
+  border: 1px solid rgba(30, 64, 175, 0.6);
+  padding: 10px 14px 12px;
+}
+
+.plugin-modal-block h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e5f2ff;
+  margin-bottom: 6px;
+}
+
+.plugin-modal-commands,
+.plugin-modal-content {
+  list-style: disc;
+  padding-left: 18px;
+}
+
+.plugin-modal-commands li,
+.plugin-modal-content li {
+  font-size: 13px;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+/* Footer */
+
+.plugin-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.plugin-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.plugin-download-btn::after {
+  content: "⬇";
+  font-size: 14px;
+}
+
+/* Responsive modal */
+
+@media (max-width: 480px) {
+  .plugin-modal {
+    padding: 18px 18px 20px;
+  }
+
+  .plugin-modal-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .plugin-modal-footer {
+    justify-content: stretch;
+  }
+
+  .plugin-download-btn {
+    width: 100%;
+  }
+}
