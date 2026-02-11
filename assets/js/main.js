@@ -1,3 +1,5 @@
+/* ===== © 2026 ObiDev Studios ===== */
+
 // Theme toggle (peut rester en dehors, DOM pas nécessaire)
 const html = document.documentElement;
 const lightBtn = document.querySelector('.theme-btn.light-btn');
@@ -158,3 +160,4 @@ faqItems.forEach(item => {
     lastScrollY = currentY;
   });
 });
+/* ===== © 2026 ObiDev Studios ===== */
