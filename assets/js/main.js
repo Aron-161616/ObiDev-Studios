@@ -6,23 +6,26 @@ function setTheme(theme) {
     const btnDark = document.getElementById('themeDarkTop');
     const btnLight = document.getElementById('themeLightTop');
     
+    const timestamp = new Date().getTime();
+    
     if (theme === 'light') {
-        stylesheet.href = 'light-theme.css';
+        stylesheet.href = `light-theme.css?v=${timestamp}`;
         btnLight.classList.add('is-active');
         btnDark.classList.remove('is-active');
         localStorage.setItem('theme', 'light');
     } else {
-        stylesheet.href = 'dark-theme.css';
+        stylesheet.href = `dark-theme.css?v=${timestamp}`;
         btnDark.classList.add('is-active');
         btnLight.classList.remove('is-active');
         localStorage.setItem('theme', 'dark');
     }
 }
 
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'dark';
     setTheme(savedTheme);
 });
+
 
 
 
