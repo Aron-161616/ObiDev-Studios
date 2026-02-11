@@ -19,8 +19,6 @@ html {
     /*DARK MODE */
     --bg-gradient: radial-gradient(circle at top, #111827 0%, #020617 55%);
     --text-color: #f9fafb;
-    --card-bg: rgba(30, 41, 59, 0.7); 
-    --border-color: rgba(255, 255, 255, 0.1);
     --toggle-bg: rgba(3, 12, 30, 0.95);
     --toggle-border: rgba(88, 176, 255, 0.6);
 }
@@ -29,8 +27,6 @@ html {
 body.light-mode {
     --bg-gradient: radial-gradient(circle at top, #f3f4f6 0%, #e5e7eb 100%); 
     --text-color: #111827; 
-    --card-bg: rgba(255, 255, 255, 0.9); 
-    --border-color: rgba(0, 0, 0, 0.1);
     --toggle-bg: rgba(255, 255, 255, 0.95);
     --toggle-border: rgba(59, 130, 246, 0.6);
 }
