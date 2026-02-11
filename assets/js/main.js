@@ -1,33 +1,33 @@
 /* ===== © 2026 ObiDev Studios ===== */
 
-// Theme toggle
-const html = document.documentElement;
-const lightBtn = document.querySelector('.theme-btn.light-btn');
-const darkBtn = document.querySelector('.theme-btn.dark-btn');
-
+// --- GESTION DU THÈME ---
 function setTheme(theme) {
-  if (!html) return;
-  html.setAttribute('data-theme', theme);
-  localStorage.setItem('theme', theme);
-  if (lightBtn && darkBtn) {
-    lightBtn.classList.toggle('active', theme === 'light');
-    darkBtn.classList.toggle('active', theme === 'dark');
-  }
+    const body = document.body;
+    const btnDark = document.getElementById('themeDarkTop');
+    const btnLight = document.getElementById('themeLightTop');
+
+    if (theme === 'light') {
+
+        body.classList.add('light-mode');
+        
+
+        btnLight.classList.add('is-active');
+        btnDark.classList.remove('is-active');
+        
+
+        localStorage.setItem('theme', 'light');
+    } else {
+
+        body.classList.remove('light-mode');
+        
+
+        btnDark.classList.add('is-active');
+        btnLight.classList.remove('is-active');
+
+        localStorage.setItem('theme', 'dark');
+    }
 }
 
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'light' || savedTheme === 'dark') {
-  setTheme(savedTheme);
-} else {
-  setTheme('dark');
-}
-
-if (lightBtn) {
-  lightBtn.addEventListener('click', () => setTheme('light'));
-}
-if (darkBtn) {
-  darkBtn.addEventListener('click', () => setTheme('dark'));
-}
 
 // ---- DOMContentLoaded ----
 document.addEventListener("DOMContentLoaded", () => {
@@ -161,4 +161,8 @@ faqItems.forEach(item => {
   });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme') || 'dark'; 
+    setTheme(savedTheme);
+});
 /* ===== © 2026 ObiDev Studios ===== */
