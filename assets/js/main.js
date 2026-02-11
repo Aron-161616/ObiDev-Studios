@@ -1,6 +1,6 @@
 /* ===== © 2026 ObiDev Studios ===== */
 
-// Theme toggle (peut rester en dehors, DOM pas nécessaire)
+// Theme toggle
 const html = document.documentElement;
 const lightBtn = document.querySelector('.theme-btn.light-btn');
 const darkBtn = document.querySelector('.theme-btn.dark-btn');
@@ -29,9 +29,9 @@ if (darkBtn) {
   darkBtn.addEventListener('click', () => setTheme('dark'));
 }
 
-// ---- TOUT LE RESTE dans DOMContentLoaded ----
+// ---- DOMContentLoaded ----
 document.addEventListener("DOMContentLoaded", () => {
-  // Smooth scroll nav
+
   const navLinks = document.querySelectorAll('a[href^="#"]');
   navLinks.forEach(link => {
     link.addEventListener('click', event => {
@@ -45,10 +45,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // FAQ accordion
+  // FAQ 
 const faqItems = document.querySelectorAll('.faq-item');
 faqItems.forEach(item => {
-  const header = item.querySelector('.faq-header'); // ← changé de .faq-question
+  const header = item.querySelector('.faq-header'); 
   if (!header) return;
 
   header.addEventListener('click', () => {
@@ -142,7 +142,7 @@ faqItems.forEach(item => {
     });
   }
 
-  // ---- NAVBAR HIDE ON SCROLL (maintenant à l'intérieur) ----
+  // ---- NAVBAR HIDE ON SCROLL----
   let lastScrollY = window.scrollY;
   const headerEl = document.querySelector('.header');
 
@@ -160,4 +160,43 @@ faqItems.forEach(item => {
     lastScrollY = currentY;
   });
 });
+
+
+
+// === GESTION THÈME DARK/LIGHT === 
+
+document.addEventListener('DOMContentLoaded', () => {
+    const themeBtns = document.querySelectorAll('.theme-btn');
+    const body = document.body;
+    
+    function applyTheme(themeName) {
+        if (themeName === 'light') {
+            body.classList.add('light-mode');
+        } else {
+            body.classList.remove('light-mode');
+        }
+        
+        themeBtns.forEach(btn => {
+            if(btn.dataset.theme === themeName) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        localStorage.setItem('theme', themeName);
+    }
+
+    themeBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            applyTheme(btn.dataset.theme);
+        });
+    });
+
+    // Chargement du thème sauvegardé
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    applyTheme(savedTheme);
+});
+
 /* ===== © 2026 ObiDev Studios ===== */
