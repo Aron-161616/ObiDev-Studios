@@ -7,26 +7,24 @@ function setTheme(theme) {
     const btnLight = document.getElementById('themeLightTop');
 
     if (theme === 'light') {
-
         body.classList.add('light-mode');
-        
-
         btnLight.classList.add('is-active');
         btnDark.classList.remove('is-active');
-        
-
         localStorage.setItem('theme', 'light');
     } else {
-
         body.classList.remove('light-mode');
-        
-
         btnDark.classList.add('is-active');
         btnLight.classList.remove('is-active');
-
         localStorage.setItem('theme', 'dark');
     }
 }
+
+
+window.addEventListener('load', () => {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
+});
+
 
 
 // ---- DOMContentLoaded ----
@@ -161,8 +159,5 @@ faqItems.forEach(item => {
   });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme') || 'dark'; 
-    setTheme(savedTheme);
-});
+
 /* ===== © 2026 ObiDev Studios ===== */
