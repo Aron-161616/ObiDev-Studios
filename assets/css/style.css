@@ -15,25 +15,67 @@ html {
 
 
 /* ===== Fond ===== */
+/* Fond Principal Profond */
 body {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+    background-color: #050a14; /* Bleu nuit très sombre, presque noir */
+    color: #ffffff;
+    position: relative;
+    overflow-x: hidden; /* Important pour ne pas avoir de scrollbar à cause des orbes */
     min-height: 100vh;
 }
 
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+/* Les Orbes Lumineux (Glow Effects) */
+.glow-effect {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(100px); /* Le flou qui fait tout le style "diffus" */
+    z-index: -1; /* Derrière tout le contenu */
+    animation: float 10s infinite ease-in-out;
+    opacity: 0.6; /* Subtil, pas agressif */
 }
 
-/* Ajustement pour le Dark Mode (plus sombre mais gardant la couleur) */
-[data-bs-theme="dark"] body {
-    background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #533483);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+/* Orbe 1 : Bleu Cyan (ObiDev) - Haut Gauche */
+.glow-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #23a6d5 0%, rgba(35, 166, 213, 0) 70%);
+    top: -150px;
+    left: -150px;
+    animation-delay: 0s;
 }
+
+/* Orbe 2 : Bleu Profond/Violet - Bas Droite */
+.glow-2 {
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, #3a86ff 0%, rgba(58, 134, 255, 0) 70%);
+    bottom: -200px;
+    right: -200px;
+    animation-delay: 5s; /* Décalage pour mouvement organique */
+}
+
+/* Animation de flottement lent */
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+/* Ajustement Navbar pour qu'elle soit transparente/glassmorphism */
+.navbar {
+    background: rgba(5, 10, 20, 0.7) !important; /* Semi-transparent */
+    backdrop-filter: blur(10px); /* Effet verre dépoli */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Ajustement Cartes pour qu'elles ressortent */
+.card {
+    background: rgba(20, 25, 40, 0.8); /* Plus clair que le fond */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Bordure subtile */
+    backdrop-filter: blur(5px);
+}
+
 
 
 
