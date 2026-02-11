@@ -84,6 +84,7 @@ window.addEventListener('scroll', () => {
 document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".plugin-card");
 
+  // ---- ANIMATION AU SCROLL (ton code) ----
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver(
       (entries, obs) => {
@@ -102,4 +103,77 @@ document.addEventListener("DOMContentLoaded", () => {
     // Fallback vieux navigateurs : on montre tout
     cards.forEach((card) => card.classList.add("is-visible"));
   }
+
+  // ---- MODAL PRODUIT ----
+  const modalOverlay = document.getElementById("plugin-modal");
+  if (!modalOverlay) return; // sécurité si le HTML du modal n'est pas encore là
+
+  const modalTitle = modalOverlay.querySelector(".plugin-modal-title");
+  const modalSubtitle = modalOverlay.querySelector(".plugin-modal-subtitle");
+  const modalBadge = modalOverlay.querySelector(".plugin-modal-badge");
+  const commandsList = modalOverlay.querySelector(".plugin-modal-commands");
+  const contentList = modalOverlay.querySelector(".plugin-modal-content");
+  const downloadBtn = modalOverlay.querySelector(".plugin-download-btn");
+  const closeBtn = modalOverlay.querySelector(".plugin-modal-close");
+
+  function openModalFromCard(card) {
+    const name = card.dataset.name || "";
+    const description = card.dataset.description || "";
+    const badge = card.dataset.badge || "Plugin";
+    const commands = (card.dataset.commands || "").split("|");
+    const content = (card.dataset.content || "").split("|");
+    const downloadUrl = card.dataset.download || "#";
+
+    modalTitle.textContent = name;
+    modalSubtitle.textContent = description;
+    modalBadge.textContent = badge;
+
+    commandsList.innerHTML = "";
+    commands
+      .filter((c) => c.trim() !== "")
+      .forEach((cmd) => {
+        const li = document.createElement("li");
+        li.textContent = cmd.trim();
+        commandsList.appendChild(li);
+      });
+
+    contentList.innerHTML = "";
+    content
+      .filter((c) => c.trim() !== "")
+      .forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item.trim();
+        contentList.appendChild(li);
+      });
+
+    downloadBtn.href = downloadUrl;
+
+    modalOverlay.classList.add("open");
+  }
+
+  cards.forEach((card) => {
+    card.addEventListener("click", (e) => {
+      // si plus tard tu mets un vrai bouton dans la carte, on pourra l'exclure ici
+      openModalFromCard(card);
+    });
+  });
+
+  function closeModal() {
+    modalOverlay.classList.remove("open");
+  }
+
+  closeBtn.addEventListener("click", closeModal);
+
+  modalOverlay.addEventListener("click", (e) => {
+    if (e.target === modalOverlay) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeModal();
+    }
+  });
 });
+
