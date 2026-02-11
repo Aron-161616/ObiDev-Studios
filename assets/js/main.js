@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
       link.addEventListener('click', handleNavClick);
     });
   }
-
   function handleNavClick(event) {
     const targetId = this.getAttribute('href');
     if (!targetId || targetId === '#') return;
@@ -17,9 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
-
   initNavLinks();
 
+
+  
   // === FAQ ===
   function initFAQ() {
     const faqItems = document.querySelectorAll('.faq-item');
@@ -41,6 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+
+  
   // === CARDS MODAL ===
   const cards = document.querySelectorAll(".plugin-card");
   const modalOverlay = document.getElementById("plugin-modal");
@@ -62,6 +64,8 @@ document.addEventListener("DOMContentLoaded", () => {
     cards.forEach((card) => card.classList.add("is-visible"));
   }
 
+
+  
   // Modal
   if (modalOverlay) {
     const modalTitle = modalOverlay.querySelector(".plugin-modal-title");
@@ -119,6 +123,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+
+  
   // === NAVBAR ===
   let lastScrollY = window.scrollY;
   const headerEl = document.querySelector('.header');
@@ -133,6 +139,8 @@ document.addEventListener("DOMContentLoaded", () => {
     lastScrollY = currentY;
   });
 
+
+  
   // === THÈME ===
   function setTheme(theme) {
     const stylesheet = document.getElementById('theme-stylesheet');
@@ -151,19 +159,15 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem('theme', 'dark');
     }
     
-
     setTimeout(initFAQ, 100);
   }
-
 
   document.getElementById('themeDarkTop')?.addEventListener('click', () => setTheme('dark'));
   document.getElementById('themeLightTop')?.addEventListener('click', () => setTheme('light'));
 
-
   const savedTheme = localStorage.getItem('theme') || 'dark';
   setTheme(savedTheme);
   
-
   initFAQ();
 });
 
