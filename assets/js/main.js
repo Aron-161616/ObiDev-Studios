@@ -1,8 +1,7 @@
 /* ===== © 2026 ObiDev Studios ===== */
 
-// ---- DOMContentLoaded ----
 document.addEventListener("DOMContentLoaded", () => {
-
+  // === NAVIGATION ===
   const navLinks = document.querySelectorAll('a[href^="#"]');
   navLinks.forEach(link => {
     link.addEventListener('click', event => {
@@ -10,31 +9,33 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!targetId || targetId === '#') return;
       const target = document.querySelector(targetId);
       if (!target) return;
-
       event.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 
-  // FAQ 
-const faqItems = document.querySelectorAll('.faq-item');
-faqItems.forEach(item => {
-  const header = item.querySelector('.faq-header'); 
-  if (!header) return;
+  // === FAQ ===
+  function initFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const header = item.querySelector('.faq-header'); 
+      if (!header) return;
+      
 
-  header.addEventListener('click', () => {
-    const isActive = item.classList.contains('active');
+      header.replaceWith(header.cloneNode(true));
+      const newHeader = item.querySelector('.faq-header');
+      
+      newHeader.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        faqItems.forEach(i => i.classList.remove('active'));
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+  }
 
-    faqItems.forEach(i => i.classList.remove('active'));
-
-    if (!isActive) {
-      item.classList.add('active');
-    }
-  });
-});
-
-
-  // CARDS + MODAL
+  // === CARDS MODAL ===
   const cards = document.querySelectorAll(".plugin-card");
   const modalOverlay = document.getElementById("plugin-modal");
 
@@ -50,13 +51,12 @@ faqItems.forEach(item => {
       },
       { threshold: 0.4 }
     );
-
     cards.forEach((card) => observer.observe(card));
   } else {
     cards.forEach((card) => card.classList.add("is-visible"));
   }
 
-  // Modal logic
+  // Modal
   if (modalOverlay) {
     const modalTitle = modalOverlay.querySelector(".plugin-modal-title");
     const modalSubtitle = modalOverlay.querySelector(".plugin-modal-subtitle");
@@ -113,51 +113,52 @@ faqItems.forEach(item => {
     });
   }
 
-  // ---- NAVBAR HIDE ON SCROLL----
+  // === NAVBAR ===
   let lastScrollY = window.scrollY;
   const headerEl = document.querySelector('.header');
-
   window.addEventListener('scroll', () => {
     if (!headerEl) return;
-
     const currentY = window.scrollY;
-
     if (currentY > lastScrollY && currentY > 120) {
       headerEl.classList.add('header--hidden');
     } else {
       headerEl.classList.remove('header--hidden');
     }
-
     lastScrollY = currentY;
   });
-});
 
-
-
-// === THÈME ===
-
-function setTheme(theme) {
+  // === THÈME ===
+  function setTheme(theme) {
     const stylesheet = document.getElementById('theme-stylesheet');
     const btnDark = document.getElementById('themeDarkTop');
     const btnLight = document.getElementById('themeLightTop');
     
     if (theme === 'light') {
-        stylesheet.href = 'assets/css/light-theme.css?v=' + Date.now();
-        btnLight.classList.add('is-active');
-        btnDark.classList.remove('is-active');
-        localStorage.setItem('theme', 'light');
+      stylesheet.href = 'assets/css/light-theme.css?v=' + Date.now();
+      btnLight.classList.add('is-active');
+      btnDark.classList.remove('is-active');
+      localStorage.setItem('theme', 'light');
     } else {
-        stylesheet.href = 'assets/css/dark-theme.css?v=' + Date.now();
-        btnDark.classList.add('is-active');
-        btnLight.classList.remove('is-active');
-        localStorage.setItem('theme', 'dark');
+      stylesheet.href = 'assets/css/dark-theme.css?v=' + Date.now();
+      btnDark.classList.add('is-active');
+      btnLight.classList.remove('is-active');
+      localStorage.setItem('theme', 'dark');
     }
-}
+    
 
-document.addEventListener('DOMContentLoaded', function() {
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    setTheme(savedTheme);
+    setTimeout(initFAQ, 100);
+  }
+
+
+  document.getElementById('themeDarkTop')?.addEventListener('click', () => setTheme('dark'));
+  document.getElementById('themeLightTop')?.addEventListener('click', () => setTheme('light'));
+
+
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  setTheme(savedTheme);
+  
+
+  initFAQ();
 });
-
 
 /* ===== © 2026 ObiDev Studios ===== */
